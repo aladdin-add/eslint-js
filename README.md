@@ -3,7 +3,25 @@
 [![npm downloads](https://img.shields.io/npm/dm/espree.svg)](https://www.npmjs.com/package/espree)
 [![Bountysource](https://www.bountysource.com/badge/tracker?tracker_id=9348450)](https://www.bountysource.com/trackers/9348450-eslint?utm_source=9348450&utm_medium=shield&utm_campaign=TRACKER_BADGE)
 
-# Espree
+# cespree
+
+**WIP**
+> 和 espree 兼容的 parser，更快！
+
+## TODO:
+
+### 可行性
+
++ 在cherow 不支持插件的情况下，是否能够实现转换。（acorn 支持插件机制，而cherow不支持）
++ Espree 支持词法分析，但cherow目前不支持
++ code-gen 是否通用
+
+### 开发
+
++ 架构
++ tokenize
++ parse
++ espree 的测试用例通过
 
 Espree started out as a fork of [Esprima](http://esprima.org) v1.2.2, the last stable published released of Esprima before work on ECMAScript 6 began. Espree is now built on top of [Acorn](https://github.com/ternjs/acorn), which has a modular architecture that allows extension of core functionality. The goal of Espree is to produce output that is similar to Esprima with a similar API so that it can be used in place of Esprima.
 
