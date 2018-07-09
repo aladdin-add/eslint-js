@@ -58,16 +58,16 @@
 
 "use strict";
 
-var astNodeTypes = require("./lib/ast-node-types"),
+const astNodeTypes = require("./lib/ast-node-types"),
     commentAttachment = require("./lib/comment-attachment"),
     TokenTranslator = require("./lib/token-translator"),
     acornJSX = require("acorn-jsx/inject"),
     rawAcorn = require("acorn");
 
 
-var acorn = acornJSX(rawAcorn);
-var DEFAULT_ECMA_VERSION = 5;
-var lookahead,
+const acorn = acornJSX(rawAcorn);
+const DEFAULT_ECMA_VERSION = 5;
+let lookahead,
     extra,
     lastToken;
 
@@ -92,9 +92,7 @@ function resetExtra() {
     };
 }
 
-
-
-var tt = acorn.tokTypes,
+const tt = acorn.tokTypes,
     getLineInfo = acorn.getLineInfo;
 
 // custom type for JSX attribute values
@@ -107,7 +105,7 @@ tt.jsxAttrValueToken = {};
  */
 function normalizeEcmaVersion(ecmaVersion) {
     if (typeof ecmaVersion === "number") {
-        var version = ecmaVersion;
+        let version = ecmaVersion;
 
         // Calculate ECMAScript edition number from official year version starting with
         // ES2015, which corresponds with ES6 (or a difference of 2009).
@@ -160,6 +158,7 @@ function isValidNode(node) {
  * @this acorn.Parser
  */
 function esprimaFinishNode(result) {
+
     // ensure that parsed node was allowed through ecmaFeatures
     if (!isValidNode(result)) {
         this.unexpected(result.start);
@@ -170,7 +169,7 @@ function esprimaFinishNode(result) {
     if (result.type === "TemplateElement") {
 
         // additional adjustment needed if ${ is the last token
-        var terminalDollarBraceL = this.input.slice(result.end, result.end + 2) === "${";
+        const terminalDollarBraceL = this.input.slice(result.end, result.end + 2) === "${";
 
         if (result.range) {
             result.range[0]--;
@@ -201,8 +200,8 @@ function esprimaFinishNode(result) {
  * @private
  */
 function isValidToken(parser) {
-    var ecma = extra.ecmaFeatures;
-    var type = parser.type;
+    const ecma = extra.ecmaFeatures;
+    const type = parser.type;
 
     switch (type) {
         case tt.jsxName:
@@ -231,8 +230,10 @@ function isValidToken(parser) {
  * @private
  */
 function wrapFinishNode(finishNode) {
+    /* eslint-disable-next-line valid-jsdoc */
     return /** @this acorn.Parser */ function(node, type, pos, loc) {
-        var result = finishNode.call(this, node, type, pos, loc);
+        const result = finishNode.call(this, node, type, pos, loc);
+
         return esprimaFinishNode.call(this, result);
     };
 }
@@ -243,23 +244,21 @@ acorn.plugins.espree = function(instance) {
 
     instance.extend("finishNodeAt", wrapFinishNode);
 
-    instance.extend("next", function(next) {
-        return /** @this acorn.Parser */ function() {
+    instance.extend("next", next =>
+    /** @this acorn.Parser */ function() {
             if (!isValidToken(this)) {
                 this.unexpected();
             }
             return next.call(this);
-        };
-    });
+        });
 
-    instance.extend("parseTopLevel", function(parseTopLevel) {
-        return /** @this acorn.Parser */ function(node) {
+    instance.extend("parseTopLevel", parseTopLevel =>
+    /** @this acorn.Parser */ function(node) {
             if (extra.ecmaFeatures.impliedStrict && this.options.ecmaVersion >= 5) {
                 this.strict = true;
             }
             return parseTopLevel.call(this, node);
-        };
-    });
+        });
 
     /**
      * Overwrites the default raise method to throw Esprima-style errors.
@@ -269,8 +268,9 @@ acorn.plugins.espree = function(instance) {
      * @returns {void}
      */
     instance.raise = instance.raiseRecoverable = function(pos, message) {
-        var loc = getLineInfo(this.input, pos);
-        var err = new SyntaxError(message);
+        const loc = getLineInfo(this.input, pos);
+        const err = new SyntaxError(message);
+
         err.index = pos;
         err.lineNumber = loc.line;
         err.column = loc.column + 1; // acorn uses 0-based columns
@@ -284,7 +284,7 @@ acorn.plugins.espree = function(instance) {
      * @returns {void}
      */
     instance.unexpected = function(pos) {
-        var message = "Unexpected token";
+        let message = "Unexpected token";
 
         if (pos !== null && pos !== undefined) {
             this.pos = pos;
@@ -300,7 +300,7 @@ acorn.plugins.espree = function(instance) {
         }
 
         if (this.end > this.start) {
-            message += " " + this.input.slice(this.start, this.end);
+            message += ` ${this.input.slice(this.start, this.end)}`;
         }
 
         this.raise(this.start, message);
@@ -313,16 +313,16 @@ acorn.plugins.espree = function(instance) {
     * on extra so that when tokens are converted, the next token will be switched
     * to JSXText via onToken.
     */
-    instance.extend("jsx_readString", function(jsxReadString) {
-        return /** @this acorn.Parser */ function(quote) {
-            var result = jsxReadString.call(this, quote);
+    instance.extend("jsx_readString", jsxReadString =>
+    /** @this acorn.Parser */ function(quote) {
+            const result = jsxReadString.call(this, quote);
+
             if (this.type === tt.string) {
                 extra.jsxAttrValueToken = true;
             }
 
             return result;
-        };
-    });
+        });
 };
 
 //------------------------------------------------------------------------------
@@ -331,29 +331,25 @@ acorn.plugins.espree = function(instance) {
 
 /**
  * Tokenizes the given code.
- * @param {string} code The code to tokenize.
- * @param {Object} options Options defining how to tokenize.
+ * @param {string} inputCode The code to tokenize.
+ * @param {Object} inputOptions Options defining how to tokenize.
  * @returns {Token[]} An array of tokens.
  * @throws {SyntaxError} If the input code is invalid.
  * @private
  */
-function tokenize(code, options) {
-    var toString,
-        tokens,
-        impliedStrict,
-        translator = new TokenTranslator(tt, code);
+function tokenize(inputCode, inputOptions) {
+    const translator = new TokenTranslator(tt, inputCode);
+    const toString = String;
+    const options = Object.assign({}, inputOptions);
+    const code = typeof inputCode !== "string" && !(inputCode instanceof String)
+        ? toString(inputCode) : inputCode;
 
-    toString = String;
-    if (typeof code !== "string" && !(code instanceof String)) {
-        code = toString(code);
-    }
+    let tokens,
+        impliedStrict;
 
     lookahead = null;
 
-    // Options matching.
-    options = Object.assign({}, options);
-
-    var acornOptions = {
+    const acornOptions = {
         ecmaVersion: DEFAULT_ECMA_VERSION,
         plugins: {
             espree: true
@@ -375,8 +371,9 @@ function tokenize(code, options) {
     extra.comment = typeof options.comment === "boolean" && options.comment;
 
     if (extra.comment) {
-        acornOptions.onComment = function() {
-            var comment = convertAcornCommentToEsprimaComment.apply(this, arguments);
+        acornOptions.onComment = function(...args) {
+            const comment = convertAcornCommentToEsprimaComment.call(this, ...args);
+
             extra.comments.push(comment);
         };
     }
@@ -393,7 +390,8 @@ function tokenize(code, options) {
     }
 
     try {
-        var tokenizer = acorn.tokenizer(code, acornOptions);
+        const tokenizer = acorn.tokenizer(code, acornOptions);
+
         while ((lookahead = tokenizer.getToken()).type !== tt.eof) {
             translator.onToken(lookahead, extra);
         }
@@ -418,7 +416,6 @@ function tokenize(code, options) {
 //------------------------------------------------------------------------------
 
 
-
 /**
  * Converts an Acorn comment to a Esprima comment.
  * @param {boolean} block True if it's a block comment, false if not.
@@ -431,7 +428,7 @@ function tokenize(code, options) {
  * @private
  */
 function convertAcornCommentToEsprimaComment(block, text, start, end, startLoc, endLoc) {
-    var comment = {
+    const comment = {
         type: block ? "Block" : "Line",
         value: text
     };
@@ -454,51 +451,49 @@ function convertAcornCommentToEsprimaComment(block, text, start, end, startLoc, 
 
 /**
  * Parses the given code.
- * @param {string} code The code to tokenize.
- * @param {Object} options Options defining how to tokenize.
+ * @param {string} inputCode The code to tokenize.
+ * @param {Object} inputOptions Options defining how to tokenize.
  * @returns {ASTNode} The "Program" AST node.
  * @throws {SyntaxError} If the input code is invalid.
  * @private
  */
-function parse(code, options) {
-    var program,
-        toString = String,
-        translator,
-        impliedStrict,
-        acornOptions = {
-            ecmaVersion: DEFAULT_ECMA_VERSION,
-            plugins: {
-                espree: true
-            }
-        };
+function parse(inputCode, inputOptions) {
+    const toString = String;
+    const acornOptions = {
+        ecmaVersion: DEFAULT_ECMA_VERSION,
+        plugins: {
+            espree: true
+        }
+    };
+    const code = typeof inputCode !== "string" && !(inputCode instanceof String)
+        ? toString(inputCode) : inputCode;
+    let translator,
+        impliedStrict;
 
     lastToken = null;
 
-    if (typeof code !== "string" && !(code instanceof String)) {
-        code = toString(code);
-    }
 
     resetExtra();
     commentAttachment.reset();
 
-    if (typeof options !== "undefined") {
-        extra.range = (typeof options.range === "boolean") && options.range;
-        extra.loc = (typeof options.loc === "boolean") && options.loc;
-        extra.attachComment = (typeof options.attachComment === "boolean") && options.attachComment;
+    if (typeof inputOptions !== "undefined") {
+        extra.range = (typeof inputOptions.range === "boolean") && inputOptions.range;
+        extra.loc = (typeof inputOptions.loc === "boolean") && inputOptions.loc;
+        extra.attachComment = (typeof inputOptions.attachComment === "boolean") && inputOptions.attachComment;
 
-        if (extra.loc && options.source !== null && options.source !== undefined) {
-            extra.source = toString(options.source);
+        if (extra.loc && inputOptions.source !== null && inputOptions.source !== undefined) {
+            extra.source = toString(inputOptions.source);
         }
 
-        if (typeof options.tokens === "boolean" && options.tokens) {
+        if (typeof inputOptions.tokens === "boolean" && inputOptions.tokens) {
             extra.tokens = [];
             translator = new TokenTranslator(tt, code);
         }
-        if (typeof options.comment === "boolean" && options.comment) {
+        if (typeof inputOptions.comment === "boolean" && inputOptions.comment) {
             extra.comment = true;
             extra.comments = [];
         }
-        if (typeof options.tolerant === "boolean" && options.tolerant) {
+        if (typeof inputOptions.tolerant === "boolean" && inputOptions.tolerant) {
             extra.errors = [];
         }
         if (extra.attachComment) {
@@ -507,9 +502,9 @@ function parse(code, options) {
             commentAttachment.reset();
         }
 
-        acornOptions.ecmaVersion = extra.ecmaVersion = normalizeEcmaVersion(options.ecmaVersion);
+        acornOptions.ecmaVersion = extra.ecmaVersion = normalizeEcmaVersion(inputOptions.ecmaVersion);
 
-        if (options.sourceType === "module") {
+        if (inputOptions.sourceType === "module") {
             extra.isModule = true;
 
             // modules must be in 6 at least
@@ -522,11 +517,11 @@ function parse(code, options) {
         }
 
         // apply parsing flags after sourceType to allow overriding
-        if (options.ecmaFeatures && typeof options.ecmaFeatures === "object") {
-            extra.ecmaFeatures = Object.assign({}, options.ecmaFeatures);
+        if (inputOptions.ecmaFeatures && typeof inputOptions.ecmaFeatures === "object") {
+            extra.ecmaFeatures = Object.assign({}, inputOptions.ecmaFeatures);
             impliedStrict = extra.ecmaFeatures.impliedStrict;
             extra.ecmaFeatures.impliedStrict = typeof impliedStrict === "boolean" && impliedStrict;
-            if (options.ecmaFeatures.globalReturn) {
+            if (inputOptions.ecmaFeatures.globalReturn) {
                 acornOptions.allowReturnOutsideFunction = true;
             }
         }
@@ -542,8 +537,9 @@ function parse(code, options) {
         };
 
         if (extra.attachComment || extra.comment) {
-            acornOptions.onComment = function() {
-                var comment = convertAcornCommentToEsprimaComment.apply(this, arguments);
+            acornOptions.onComment = function(...args) {
+                const comment = convertAcornCommentToEsprimaComment.apply(this, args);
+
                 extra.comments.push(comment);
 
                 if (extra.attachComment) {
@@ -561,6 +557,7 @@ function parse(code, options) {
         }
 
         if (extra.ecmaFeatures.jsx) {
+
             // Should process jsx plugin before espree plugin.
             acornOptions.plugins = {
                 jsx: true,
@@ -569,7 +566,8 @@ function parse(code, options) {
         }
     }
 
-    program = acorn.parse(code, acornOptions);
+    const program = acorn.parse(code, acornOptions);
+
     program.sourceType = extra.isModule ? "module" : "script";
 
     if (extra.comment || extra.attachComment) {
@@ -613,7 +611,8 @@ exports.parse = parse;
 // Deep copy.
 /* istanbul ignore next */
 exports.Syntax = (function() {
-    var name, types = {};
+    let name,
+        types = {};
 
     if (typeof Object.create === "function") {
         types = Object.create(null);
