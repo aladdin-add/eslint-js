@@ -1,6 +1,6 @@
 module.exports = {
-    "message": "'await' can not be used as shorthand property",
-    "column": 9,
     "index": 8,
-    "lineNumber": 1
-}
+    "lineNumber": 1,
+    "column": 9,
+    "message": "Can not use keyword 'await' outside an async function"
+};
