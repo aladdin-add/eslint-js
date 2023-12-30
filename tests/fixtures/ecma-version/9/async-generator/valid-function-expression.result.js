@@ -83,8 +83,8 @@ export default {
                         43
                     ],
                     "id": null,
-                    "generator": true,
                     "expression": false,
+                    "generator": true,
                     "async": true,
                     "params": [],
                     "body": {

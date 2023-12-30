@@ -1,5 +1,3 @@
-import conditionalRegex from "../../../../lib/conditional-regex-value.js";
-
 export default {
     "type": "Program",
     "loc": {
@@ -33,7 +31,7 @@ export default {
                 0,
                 8
             ],
-            "expression": conditionalRegex({
+            "expression": {
                 "type": "Literal",
                 "loc": {
                     "start": {
@@ -49,12 +47,13 @@ export default {
                     0,
                     8
                 ],
+                "value": /(?<=a)/,
                 "raw": "/(?<=a)/",
                 "regex": {
                     "pattern": "(?<=a)",
                     "flags": ""
                 }
-            })
+            }
         }
     ],
     "sourceType": "script",

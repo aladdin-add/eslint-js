@@ -83,7 +83,6 @@ export default {
                             10,
                             44
                         ],
-                        "kind": "method",
                         "static": false,
                         "computed": false,
                         "key": {
@@ -104,6 +103,7 @@ export default {
                             ],
                             "name": "f"
                         },
+                        "kind": "method",
                         "value": {
                             "type": "FunctionExpression",
                             "loc": {
@@ -121,8 +121,8 @@ export default {
                                 44
                             ],
                             "id": null,
-                            "generator": false,
                             "expression": false,
+                            "generator": false,
                             "async": true,
                             "params": [],
                             "body": {

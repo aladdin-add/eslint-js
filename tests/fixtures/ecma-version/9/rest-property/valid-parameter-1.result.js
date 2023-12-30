@@ -48,8 +48,8 @@ export default {
                     16
                 ],
                 "id": null,
-                "generator": false,
                 "expression": false,
+                "generator": false,
                 "async": false,
                 "params": [
                     {

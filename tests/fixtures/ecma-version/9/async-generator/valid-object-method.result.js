@@ -138,8 +138,8 @@ export default {
                                     40
                                 ],
                                 "id": null,
-                                "generator": true,
                                 "expression": false,
+                                "generator": true,
                                 "async": true,
                                 "params": [],
                                 "body": {

@@ -49,8 +49,8 @@ export default {
                 ],
                 "name": "f"
             },
-            "generator": true,
             "expression": false,
+            "generator": true,
             "async": true,
             "params": [],
             "body": {
