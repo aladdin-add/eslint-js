@@ -83,6 +83,7 @@ export default {
                             10,
                             23
                         ],
+                        "static": false,
                         "computed": false,
                         "key": {
                             "type": "Identifier",
@@ -102,7 +103,6 @@ export default {
                             ],
                             "name": "foo"
                         },
-                        "static": false,
                         "kind": "method",
                         "value": {
                             "type": "FunctionExpression",
@@ -121,8 +121,8 @@ export default {
                                 23
                             ],
                             "id": null,
-                            "generator": false,
                             "expression": false,
+                            "generator": false,
                             "async": false,
                             "params": [
                                 {
@@ -458,4 +458,4 @@ export default {
             ]
         }
     ]
-}
+};

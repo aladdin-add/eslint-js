@@ -49,8 +49,8 @@ export default {
                 ],
                 "name": "a"
             },
-            "generator": false,
             "expression": false,
+            "generator": false,
             "async": false,
             "params": [
                 {
@@ -509,4 +509,4 @@ export default {
             ]
         }
     ]
-}
+};

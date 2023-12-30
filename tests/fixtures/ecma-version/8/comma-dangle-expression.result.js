@@ -83,8 +83,8 @@ export default {
                             28
                         ],
                         "id": null,
-                        "generator": false,
                         "expression": false,
+                        "generator": false,
                         "async": false,
                         "params": [
                             {
@@ -385,4 +385,4 @@ export default {
             ]
         }
     ]
-}
+};

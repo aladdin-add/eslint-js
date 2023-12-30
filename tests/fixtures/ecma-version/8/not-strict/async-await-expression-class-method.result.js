@@ -82,6 +82,7 @@ export default {
                                 8,
                                 32
                             ],
+                            "static": false,
                             "computed": false,
                             "key": {
                                 "type": "Identifier",
@@ -101,7 +102,6 @@ export default {
                                 ],
                                 "name": "foo"
                             },
-                            "static": false,
                             "kind": "method",
                             "value": {
                                 "type": "FunctionExpression",
@@ -120,8 +120,8 @@ export default {
                                     32
                                 ],
                                 "id": null,
-                                "generator": false,
                                 "expression": false,
+                                "generator": false,
                                 "async": true,
                                 "params": [
                                     {
@@ -494,4 +494,4 @@ export default {
             ]
         }
     ]
-}
+};

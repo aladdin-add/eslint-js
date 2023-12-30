@@ -49,8 +49,8 @@ export default {
                 ],
                 "name": "wrap"
             },
-            "generator": true,
             "expression": false,
+            "generator": true,
             "async": false,
             "params": [],
             "body": {
@@ -490,4 +490,4 @@ export default {
             ]
         }
     ]
-}
+};

@@ -48,8 +48,8 @@ export default {
                     35
                 ],
                 "id": null,
-                "generator": false,
                 "expression": false,
+                "generator": false,
                 "async": true,
                 "params": [],
                 "body": {
@@ -255,4 +255,4 @@ export default {
             ]
         }
     ]
-}
+};

@@ -1,6 +1,6 @@
 export default {
-    "message": "Cannot use 'await' as identifier inside an async function",
-    "column": 21,
     "index": 20,
-    "lineNumber": 1
-}
+    "lineNumber": 1,
+    "column": 21,
+    "message": "Cannot use 'await' as identifier inside an async function"
+};

@@ -1,6 +1,6 @@
 export default {
-    "message": "The keyword 'yield' is reserved",
-    "column": 7,
     "index": 6,
-    "lineNumber": 1
-}
+    "lineNumber": 1,
+    "column": 7,
+    "message": "The keyword 'yield' is reserved"
+};

@@ -1,6 +1,6 @@
 export default {
-    "message": "Unexpected token function",
-    "column": 1,
     "index": 7,
-    "lineNumber": 2
-}
+    "lineNumber": 2,
+    "column": 1,
+    "message": "Unexpected token function"
+};

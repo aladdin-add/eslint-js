@@ -49,8 +49,8 @@ export default {
                 ],
                 "name": "foo"
             },
-            "generator": false,
             "expression": false,
+            "generator": false,
             "async": true,
             "params": [
                 {
@@ -138,6 +138,7 @@ export default {
                                         30,
                                         53
                                     ],
+                                    "static": false,
                                     "computed": false,
                                     "key": {
                                         "type": "Identifier",
@@ -157,7 +158,6 @@ export default {
                                         ],
                                         "name": "bar"
                                     },
-                                    "static": false,
                                     "kind": "method",
                                     "value": {
                                         "type": "FunctionExpression",
@@ -176,8 +176,8 @@ export default {
                                             53
                                         ],
                                         "id": null,
-                                        "generator": false,
                                         "expression": false,
+                                        "generator": false,
                                         "async": true,
                                         "params": [],
                                         "body": {
@@ -676,4 +676,4 @@ export default {
             ]
         }
     ]
-}
+};

@@ -49,8 +49,8 @@ export default {
                 ],
                 "name": "wrap"
             },
-            "generator": false,
             "expression": false,
+            "generator": false,
             "async": true,
             "params": [],
             "body": {
@@ -138,6 +138,7 @@ export default {
                                         35,
                                         52
                                     ],
+                                    "static": false,
                                     "computed": false,
                                     "key": {
                                         "type": "Identifier",
@@ -157,7 +158,6 @@ export default {
                                         ],
                                         "name": "await"
                                     },
-                                    "static": false,
                                     "kind": "method",
                                     "value": {
                                         "type": "FunctionExpression",
@@ -176,8 +176,8 @@ export default {
                                             52
                                         ],
                                         "id": null,
-                                        "generator": false,
                                         "expression": false,
+                                        "generator": false,
                                         "async": true,
                                         "params": [],
                                         "body": {
@@ -551,4 +551,4 @@ export default {
             ]
         }
     ]
-}
+};

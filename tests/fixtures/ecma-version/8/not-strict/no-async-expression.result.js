@@ -65,8 +65,8 @@ export default {
                     ],
                     "name": "foo"
                 },
-                "generator": false,
                 "expression": false,
+                "generator": false,
                 "async": false,
                 "params": [],
                 "body": {
@@ -255,4 +255,4 @@ export default {
             ]
         }
     ]
-}
+};

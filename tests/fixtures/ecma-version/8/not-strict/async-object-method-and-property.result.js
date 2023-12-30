@@ -1,5 +1,3 @@
-"use strict";
-
 export default {
     "type": "Program",
     "loc": {
@@ -105,8 +103,8 @@ export default {
                                 17
                             ],
                             "id": null,
-                            "generator": false,
                             "expression": false,
+                            "generator": false,
                             "async": true,
                             "params": [],
                             "body": {

@@ -1,6 +1,6 @@
 export default {
-    "message": "Cannot use keyword 'await' outside an async function",
-    "column": 9,
     "index": 8,
-    "lineNumber": 1
+    "lineNumber": 1,
+    "column": 9,
+    "message": "Cannot use keyword 'await' outside an async function"
 };
