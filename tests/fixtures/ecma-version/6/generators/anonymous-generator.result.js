@@ -48,8 +48,8 @@ export default {
                     25
                 ],
                 "id": null,
-                "generator": true,
                 "expression": false,
+                "generator": true,
                 "params": [],
                 "body": {
                     "type": "BlockStatement",

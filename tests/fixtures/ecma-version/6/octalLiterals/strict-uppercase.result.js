@@ -31,7 +31,6 @@ export default {
                 0,
                 13
             ],
-            "directive": "use strict",
             "expression": {
                 "type": "Literal",
                 "loc": {
@@ -50,7 +49,8 @@ export default {
                 ],
                 "value": "use strict",
                 "raw": "\"use strict\""
-            }
+            },
+            "directive": "use strict"
         },
         {
             "type": "ExpressionStatement",

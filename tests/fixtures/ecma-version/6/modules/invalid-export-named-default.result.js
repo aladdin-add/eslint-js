@@ -3,4 +3,4 @@ export default {
     "lineNumber": 1,
     "column": 9,
     "message": "Unexpected keyword 'default'"
-}
+};

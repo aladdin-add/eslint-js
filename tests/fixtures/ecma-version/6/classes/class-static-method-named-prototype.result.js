@@ -83,6 +83,7 @@ export default {
                             9,
                             33
                         ],
+                        "static": true,
                         "computed": true,
                         "key": {
                             "type": "Literal",
@@ -103,7 +104,6 @@ export default {
                             "value": "prototype",
                             "raw": "\"prototype\""
                         },
-                        "static": true,
                         "kind": "method",
                         "value": {
                             "type": "FunctionExpression",
@@ -122,8 +122,8 @@ export default {
                                 33
                             ],
                             "id": null,
-                            "generator": false,
                             "expression": false,
+                            "generator": false,
                             "params": [],
                             "body": {
                                 "type": "BlockStatement",

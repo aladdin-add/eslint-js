@@ -3,4 +3,4 @@ export default {
     "lineNumber": 1,
     "column": 16,
     "message": "Unexpected keyword 'var'"
-}
+};

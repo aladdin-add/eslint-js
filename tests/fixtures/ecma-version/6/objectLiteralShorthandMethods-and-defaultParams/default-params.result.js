@@ -31,7 +31,6 @@ export default {
                 0,
                 13
             ],
-            "directive": "use strict",
             "expression": {
                 "type": "Literal",
                 "loc": {
@@ -50,7 +49,8 @@ export default {
                 ],
                 "value": "use strict",
                 "raw": "\"use strict\""
-            }
+            },
+            "directive": "use strict"
         },
         {
             "type": "VariableDeclaration",
@@ -175,8 +175,8 @@ export default {
                                         40
                                     ],
                                     "id": null,
-                                    "generator": false,
                                     "expression": false,
+                                    "generator": false,
                                     "params": [
                                         {
                                             "type": "AssignmentPattern",
@@ -308,8 +308,8 @@ export default {
                                         60
                                     ],
                                     "id": null,
-                                    "generator": false,
                                     "expression": false,
+                                    "generator": false,
                                     "params": [
                                         {
                                             "type": "Identifier",
@@ -459,8 +459,8 @@ export default {
                                         85
                                     ],
                                     "id": null,
-                                    "generator": false,
                                     "expression": false,
+                                    "generator": false,
                                     "params": [
                                         {
                                             "type": "Identifier",

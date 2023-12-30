@@ -83,6 +83,7 @@ export default {
                             13,
                             31
                         ],
+                        "static": true,
                         "computed": false,
                         "key": {
                             "type": "Identifier",
@@ -102,7 +103,6 @@ export default {
                             ],
                             "name": "bar"
                         },
-                        "static": true,
                         "kind": "method",
                         "value": {
                             "type": "FunctionExpression",
@@ -121,8 +121,8 @@ export default {
                                 31
                             ],
                             "id": null,
-                            "generator": true,
                             "expression": false,
+                            "generator": true,
                             "params": [],
                             "body": {
                                 "type": "BlockStatement",

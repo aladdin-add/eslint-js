@@ -83,6 +83,7 @@ export default {
                             9,
                             18
                         ],
+                        "static": false,
                         "computed": false,
                         "key": {
                             "type": "Identifier",
@@ -102,7 +103,6 @@ export default {
                             ],
                             "name": "a"
                         },
-                        "static": false,
                         "kind": "get",
                         "value": {
                             "type": "FunctionExpression",
@@ -121,8 +121,8 @@ export default {
                                 18
                             ],
                             "id": null,
-                            "generator": false,
                             "expression": false,
+                            "generator": false,
                             "params": [],
                             "body": {
                                 "type": "BlockStatement",
@@ -160,6 +160,7 @@ export default {
                             19,
                             29
                         ],
+                        "static": false,
                         "computed": false,
                         "key": {
                             "type": "Identifier",
@@ -179,7 +180,6 @@ export default {
                             ],
                             "name": "b"
                         },
-                        "static": false,
                         "kind": "set",
                         "value": {
                             "type": "FunctionExpression",
@@ -198,8 +198,8 @@ export default {
                                 29
                             ],
                             "id": null,
-                            "generator": false,
                             "expression": false,
+                            "generator": false,
                             "params": [
                                 {
                                     "type": "Identifier",

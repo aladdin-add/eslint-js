@@ -83,6 +83,7 @@ export default {
                             13,
                             38
                         ],
+                        "static": false,
                         "computed": true,
                         "key": {
                             "type": "MemberExpression",
@@ -138,7 +139,6 @@ export default {
                             },
                             "computed": false
                         },
-                        "static": false,
                         "kind": "method",
                         "value": {
                             "type": "FunctionExpression",
@@ -157,8 +157,8 @@ export default {
                                 38
                             ],
                             "id": null,
-                            "generator": true,
                             "expression": false,
+                            "generator": true,
                             "params": [],
                             "body": {
                                 "type": "BlockStatement",

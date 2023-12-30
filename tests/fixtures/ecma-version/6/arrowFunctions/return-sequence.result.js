@@ -48,8 +48,8 @@ export default {
                     28
                 ],
                 "id": null,
-                "generator": false,
                 "expression": true,
+                "generator": false,
                 "params": [
                     {
                         "type": "Identifier",
@@ -87,8 +87,8 @@ export default {
                         27
                     ],
                     "id": null,
-                    "generator": false,
                     "expression": true,
+                    "generator": false,
                     "params": [
                         {
                             "type": "Identifier",

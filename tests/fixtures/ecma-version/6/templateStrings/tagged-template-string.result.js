@@ -49,8 +49,8 @@ export default {
                 ],
                 "name": "tag"
             },
-            "generator": false,
             "expression": false,
+            "generator": false,
             "params": [],
             "body": {
                 "type": "BlockStatement",

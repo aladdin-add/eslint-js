@@ -65,8 +65,8 @@ export default {
                     ],
                     "name": "foo"
                 },
-                "generator": false,
                 "expression": false,
+                "generator": false,
                 "params": [],
                 "body": {
                     "type": "BlockStatement",

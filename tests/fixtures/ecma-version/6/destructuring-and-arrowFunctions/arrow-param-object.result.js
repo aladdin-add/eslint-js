@@ -48,8 +48,8 @@ export default {
                     10
                 ],
                 "id": null,
-                "generator": false,
                 "expression": true,
+                "generator": false,
                 "params": [
                     {
                         "type": "ObjectPattern",

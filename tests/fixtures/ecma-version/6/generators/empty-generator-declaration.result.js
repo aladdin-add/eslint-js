@@ -49,8 +49,8 @@ export default {
                 ],
                 "name": "t"
             },
-            "generator": true,
             "expression": false,
+            "generator": true,
             "params": [],
             "body": {
                 "type": "BlockStatement",

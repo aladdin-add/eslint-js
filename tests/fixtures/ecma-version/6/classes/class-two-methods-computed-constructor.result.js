@@ -83,6 +83,7 @@ export default {
                             9,
                             26
                         ],
+                        "static": false,
                         "computed": false,
                         "key": {
                             "type": "Literal",
@@ -103,7 +104,6 @@ export default {
                             "value": "constructor",
                             "raw": "\"constructor\""
                         },
-                        "static": false,
                         "kind": "constructor",
                         "value": {
                             "type": "FunctionExpression",
@@ -122,8 +122,8 @@ export default {
                                 26
                             ],
                             "id": null,
-                            "generator": false,
                             "expression": false,
+                            "generator": false,
                             "params": [],
                             "body": {
                                 "type": "BlockStatement",
@@ -161,6 +161,7 @@ export default {
                             27,
                             46
                         ],
+                        "static": false,
                         "computed": true,
                         "key": {
                             "type": "Literal",
@@ -181,7 +182,6 @@ export default {
                             "value": "constructor",
                             "raw": "\"constructor\""
                         },
-                        "static": false,
                         "kind": "method",
                         "value": {
                             "type": "FunctionExpression",
@@ -200,8 +200,8 @@ export default {
                                 46
                             ],
                             "id": null,
-                            "generator": false,
                             "expression": false,
+                            "generator": false,
                             "params": [],
                             "body": {
                                 "type": "BlockStatement",

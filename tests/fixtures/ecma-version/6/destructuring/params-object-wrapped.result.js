@@ -65,8 +65,8 @@ export default {
                     ],
                     "name": "x"
                 },
-                "generator": false,
                 "expression": false,
+                "generator": false,
                 "params": [
                     {
                         "type": "ObjectPattern",
