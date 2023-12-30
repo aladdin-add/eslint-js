@@ -47,7 +47,7 @@ export default {
                     0,
                     11
                 ],
-                "value": 0xdeadbeaf,
+                "value": 3735928495,
                 "raw": "0xdead_beaf"
             }
         }
