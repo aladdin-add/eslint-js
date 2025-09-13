@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.3.0](https://github.com/aladdin-add/eslint-js/compare/eslint-visitor-keys-v4.2.1...eslint-visitor-keys-v4.3.0) (2025-09-13)
+
+
+### Features
+
+* add support for Import Attributes and RegExp Modifiers ([#639](https://github.com/aladdin-add/eslint-js/issues/639)) ([2fd4222](https://github.com/aladdin-add/eslint-js/commit/2fd422278bfad826d601795670004f9d6da72ef7))
+* add the `eslint-visitor-keys` package ([#620](https://github.com/aladdin-add/eslint-js/issues/620)) ([5903929](https://github.com/aladdin-add/eslint-js/commit/5903929cb65898ffdb6bea7d3fca99781f32ff09))
+
+
+### Bug Fixes
+
+* order visitor keys for `ExportSpecifier` in source code order ([#656](https://github.com/aladdin-add/eslint-js/issues/656)) ([dbad7d8](https://github.com/aladdin-add/eslint-js/commit/dbad7d8aeab3f24253ab846f1247a33b7ddd0f19))
+* Update dependencies to avoid build failure ([#631](https://github.com/aladdin-add/eslint-js/issues/631)) ([e8cd107](https://github.com/aladdin-add/eslint-js/commit/e8cd107d732fb7ef62cd4f6cd179bd48f5c13b27))
+
 ## [4.2.1](https://github.com/eslint/js/compare/eslint-visitor-keys-v4.2.0...eslint-visitor-keys-v4.2.1) (2025-06-09)
 
 
