@@ -46,7 +46,7 @@
     "@rollup/plugin-node-resolve": "^15.3.0",
     "esprima-fb": "^8001.2001.0-dev-harmony-fb",
     "rollup": "^2.79.1",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.10.0"
   },
   "keywords": [
     "ast",
